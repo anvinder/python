@@ -1,0 +1,17 @@
+class egg():
+    def __init__(self, type="string 1"):
+        self.type=type
+
+    def display(self):
+        return self.type
+
+def main ():
+    d1=egg();
+    print (d1.display())
+    d2=egg('string 2')
+    print (d2.display())
+
+
+main ()
+
+
