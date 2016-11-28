@@ -1,0 +1,9 @@
+import re
+def main():
+    file_open=open ('lines.txt')
+    for data in file_open:
+        if re.search('Lenore', data):
+            print (data)
+
+
+main ()
