@@ -1,0 +1,10 @@
+#fibonnaci code
+def main ():
+    file_open= open ('lines.txt')
+    for text in file_open.readlines():
+        print (text)
+
+
+main ()
+
+
