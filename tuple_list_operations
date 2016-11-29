@@ -1,0 +1,35 @@
+t=tuple(range(12))
+print (t)
+print (type(t))
+print(50 in t)
+print (10 in t)
+print (50 not in t)
+print (t[10])
+print (len(t))
+for i in t: print (i)
+print (t.count(5))
+print (t.index(5))
+#print (t.append(100)) invalid operation as tuple cant be modified.
+#t[10]=25  #this wouldnt change the value of t[10] tuple CANNOT BE MODIFIED
+print (t)
+
+x=list(range(12))
+print (x)
+print (type(x))
+print(50 in x)
+print (10 in x)
+print (50 not in x)
+print (x[10])
+print (len(x))
+for i in x: print (i)
+x[10]=25  #this wouldnt change the value of t[10]
+print (x)
+x.extend(range(5))
+print (x)
+x.insert(1,99)
+print (x)
+x.remove(4) # removes the first element with the value 5
+print (x)
+del x[2] # deletes element at position 3
+print (x)
+x.pop() # removes the last element from the list like a stack
