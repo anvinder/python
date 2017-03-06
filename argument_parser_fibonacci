@@ -7,10 +7,24 @@ def fib(n):
 
 def Main():
     parser= argparse.ArgumentParser()
-    parser.add_argument("num", help = "fibonacci number you want to calculate", type=int)
-    args= parser.parse_args()
-    result= fib(args.num)
-    print "The " + str(args.num) +"th number in fibonacci is " + str(result)
+    group= parser.add_mutually_exclusive_group()
+    group.add_argument("-v", "--verbose", action= "store_true")
+    group.add_argument("-q", "--quiet", action= "store_true")
+    parser.add_argument("num", help="fibonacci number you want to calculate", type=int)
+    parser.add_argument("-o", "--output", help="output value in a text file", action="store_true")
+    args=parser.parse_args()
+
+    result=fib(args.num)
+    if args.verbose:
+        print "The " + str(args.num) +"th number in fibonacci is " + str(result)
+    elif args.quiet:
+        print "The number is " + str(result)
+    else:
+        print "The " + str(args.num) +"th number is " + str(result)
+
+    if args.output:
+        f = open ("test.txt", "a")
+        f.write(str(result) + '\n')
 
 if __name__=='__main__':
     Main()
