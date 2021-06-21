@@ -1,0 +1,25 @@
+import os
+ext = '.txt'
+dir_path = 'C:\\Users\\abc\\Downloads'
+output_file = 'output_file.out'
+os.chdir(dir_path)
+text = 'import pandas'
+
+
+def search():
+    for folder, dirs, files in os.walk(dir_path):
+        for file in files:
+            if file.endswith(ext):
+                out_file = open(output_file, 'a')
+                full_path = os.path.join(folder, file)
+                file = open(full_path, 'r+', encoding='utf-8')
+                for line_no, line in enumerate(file):
+                    if text in line:
+                        out_file.writelines([full_path, '    ', str(line_no), '\n'])
+                        print("string:'%s'   File:'%s'    Line:'%d'" % (text, full_path, line_no+1))
+                file.close()
+                out_file.close()
+
+
+if __name__ == "__main__":
+    search()
